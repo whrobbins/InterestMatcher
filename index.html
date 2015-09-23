@@ -3,15 +3,25 @@
     <head>
         <meta charset="utf-8">
         <title>Interest Matcher</title>
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
-
+        <link rel="stylesheet" type="text/css" href="css/styles.css"></head>
     </head>
-    <body ng-init="fbID=6" >
+    <body ng-init="fbID=6" >        
+        
+        <h1>Interest Matcher</h1>
+        
         <div> 
             <input type="text" ng-model="fbID" />
             <h1>{{fbID}}</h1>
             <br/>
             <span><img ng-src="https://graph.facebook.com/{{fbID}}/picture?type=normal"/></span>
         </div>
+        
+        <! -- Scripts -- >
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+        <script src="https://cdn.firebase.com/js/client/2.2.9/firebase.js"></script>
+        <script src="https://cdn.firebase.com/libs/angularfire/1.1.2/angularfire.min.js"></script>                
+        <script src="js/facebook.js"></script>
+        
+        
     </body>
 </html>
