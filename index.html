@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app>
+<html ng-app="sampleApp">
     <head>
         <meta charset="utf-8">
         <title>Interest Matcher</title>
@@ -8,38 +8,19 @@
             
         <! -- Scripts -- >
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
-        <script src="js/firebase.js"></script>
         <script src="https://cdn.firebase.com/js/client/2.2.9/firebase.js"></script>
         <script src="https://cdn.firebase.com/libs/angularfire/1.1.2/angularfire.min.js"></script>                
-        <script src="js/facebook.js"></script>
+        <script src="controllers/sampleCtrl.js"></script>
+           
+        
     
     </head>
-    <body ng-init="fbID=6" >        
+    <body ng-controller="SampleCtrl">
+        <!-- Things here are saved to firebase -->
+        <input type="text" ng-model="data.text"/>
         
-        <h1>Interest Matcher</h1>
-        
-        <div> 
-            <input type="text" ng-model="fbID" />
-            <h1>{{fbID}}</h1>
-            <br/>
-            <span><img ng-src="https://graph.facebook.com/{{fbID}}/picture?type=normal"/></span>
-        </div>
-        
-        <script>
-            var Firebase = require("firebase");
-            var ref = new Firebase("https://blazing-torch-3926.firebaseio.com/");
-
-            ref.set({
-                test:{
-	           name: "Lucas",
-	           age: 18,
-	           gender: "male",
-                }
-            });
-            
-        </script>
-
-
+        <!-- All changes from firebase appear here -->
+        <h1>You said: {{data.text}}</h1>        
         
         
     </body>
