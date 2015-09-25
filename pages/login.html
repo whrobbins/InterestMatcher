@@ -1,0 +1,27 @@
+<html>
+	<head>
+		<title>Login to Interest Matcher</title>
+	    <link rel="stylesheet" type="text/css" href="loginstyle.css"></head>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+        <script src="https://cdn.firebase.com/js/client/2.2.9/firebase.js"></script>
+        <script src="https://cdn.firebase.com/libs/angularfire/1.1.2/angularfire.min.js"></script>                
+        <script src="../controllers/authfb.js"></script>
+	</head>
+	
+	<body>
+		<div class="banner"></div>
+	
+		<h1> Welcome!</h1>
+		<p> Share your interests and find people like you.</p>
+		
+		<div class="fblogin">
+			Login with facebook
+			<div ng-app="login" ng-controller="loginCtrl">
+				<button ng-click="authFB()"></button>	
+			</div>
+		</div>
+		
+	</body>
+	
+
+</html>

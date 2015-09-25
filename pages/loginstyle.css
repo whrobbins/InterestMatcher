@@ -1,0 +1,40 @@
+.banner{
+	width: 801px;
+	height: 95px; 
+	background-image: url("interest matcher logo.png");
+	background-size: cover;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top : 50px;
+	margin-bottom: 100px;
+}
+
+h1, p{
+	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+h1{
+
+	font-size: 48px;
+	text-align: center;
+	color: #77236c;
+}
+
+p{
+	font-size: 32px;
+	text-align: center;
+	color: #545454;
+}
+
+.fblogin{
+	width: 210px;
+	height: 50px;
+	line-height: 50px;
+	background-color: #3b5998;
+	color: white;
+	text-align: center;
+	vertical-align: middle;
+	margin-left: auto;
+	margin-right: auto;
+	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
