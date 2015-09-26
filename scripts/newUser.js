@@ -2,6 +2,7 @@ var isNewUser = true;
 
 var ref = new Firebase("https://interestmatcher.firebaseio.com");
 
+// Listens for when user is authenticated.
 ref.onAuth(function(authData){
 	if (authData && isNewUser){
 		ref.child("users").child(authData.uid).set({
@@ -11,6 +12,7 @@ ref.onAuth(function(authData){
 	}
 });
 
+// Returns a good name for the user based on their login choice.
 function getName(authData){
 	switch(authData.provider){
 		case "password":
