@@ -1,33 +1,63 @@
-var ref = new Firebase("https://interestmatcher.firebaseio.com");
+var app = angular.module('loginApp', ["firebase"]);
 
-var app = angular.module('login', []);
-app.controller('loginCtrl', function($scope){
-  $scope.auth = 0;  
+app.factory("usersRef", ["$firebaseArray", function($firebaseArray){
   
-});
+  var ref = new Firebase("https://interestmatcher.firebaseio.com/users//");
+  var usersRef = $firebaseArray(ref);
+  
+  return $firebaseArray(ref);
+}])
 
-function authFB(){
+app.controller('loginCtrl', ["$scope","usersRef", function($scope, usersRef){
+ 
+  $scope.authData = {};
+  $scope.authFB = authFB;
+  
+}]);
+
+
+function authFB($scope, usersRef){
+  
+  var ref = new Firebase("https://interestmatcher.firebaseio.com/");
+  
   ref.authWithOAuthPopup("facebook", function(error, authData) {
     if (error) {
       console.log("Login Failed!", error);
     } else {
-      console.log("Authenticated successfully with payload:", authData);
+      console.log("Authenticated successfully with payload:", authData);   
     }
-  },{
+    
+  },
+  {
 	scope: "email"
   }
 );
+
+    var authData = ref.getAuth();
+
+
 }
 
-//Checks if user exists
-function authUser(authdata){
+//Checks if user exists and returns it.
+function getUser(authdata, usersRef){
   
+  var user = usersRef.$getRecord(authdata.uid);
   
+  if (user == null){
+    usersRef.$add(
+      {
+        id:authdata.uid,
+      }
+    );
+    
+    user = usersRef.$getRectord(authdata.uid);
+  }
+  return user;
 }
 
 
 //Returns the name of the user.
-function getName(authData){
+function getName(authData, usersRef){
   return authData.facebook.displayName;
 }
 
