@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html ng-app="sampleApp">
+    <head>
+        <meta charset="utf-8">
+        <title>Interest Matcher</title>
+        <link rel="stylesheet" type="text/css" href="../css/homestyle.css"></head>
+    
+            
+        <! -- Scripts -- >
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+        <script src="https://cdn.firebase.com/js/client/2.2.9/firebase.js"></script>
+        <script src="https://cdn.firebase.com/libs/angularfire/1.1.2/angularfire.min.js"></script>                
+        <script src="../controllers/chatMessages.js"></script>
+    
+    </head>
+    
+     <div class="banner"></div>
+         
+     <div class="sidebar">
+         <menuT>
+             Home
+             Interests
+             Posts
+             Groups
+             Account Settings
+         </menuT>
+     </div>
+             
+     <body>
+         
+         <div ng-app="sampleApp" ng-controller="ChatCtrl">
+            <u1 class="chatbox">
+                <li ng-repeat="message in messages">
+                    {{message.from}} : {{message.content}}
+                </li>
+            </u1>   
+            <form ng-submit="addMessage()">
+                <input type="text" ng-model="message">
+                <input type="submit" value="Add Message">
+            </form> 
+         </div>
+        
+        
+    </body>
+</html>
