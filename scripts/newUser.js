@@ -4,11 +4,23 @@ var ref = new Firebase("https://interestmatcher.firebaseio.com");
 
 // Listens for when user is authenticated.
 ref.onAuth(function(authData){
-	if (authData && isNewUser){
+	
+	var answer = ref.child("users").$getRecord(authData.uid);
+	alert(answer);
+	
+	// User does not exist.
+	if (answer != -1){
+		isNewUser = false;
+		alert("Is not new user.");
+	}
+	
+	// Creates new user if it does not exist.
+	if (isNewUser && authData){
 		ref.child("users").child(authData.uid).set({
 			provider: authData.provider,
 			name: getName(authData),
 		})
+		alert("User created.");
 	}
 	
 	// Change page to home screen.
