@@ -11,30 +11,30 @@
 */
 
 var isExistingUser = false;
-var ref = new Firebase("https://interestmatcher.firebaseio.com/users/");
+var ref = new Firebase("https://interestmatcher.firebaseio.com/users");
 
 // Listens for when user has been authenticated.
 ref.onAuth(function(authData){
 	
-	// Check if user is in database.
-	ref.once("value",function(snapshot){
-		isExistingUser = snapshot.hasChild(authData.uid);
-	});	
+
+	if (authData){
+		
+		// Check if user is in database.
+		ref.once("value",function(snapshot){
+			isExistingUser = snapshot.hasChild(authData.uid);
+		});	
+
+		// Creates new user if it does not exist.
+		if (!isExistingUser){
+			ref.child(authData.uid).set({
+				provider: authData.provider,
+				name: getName(authData),
+			})
+		}	
 	
-	alert("Is Existing User:" + isExistingUser);
-	
-	// Creates new user if it does not exist.
-	if (!isExistingUser && authData){
-		ref.child(authData.uid).set({
-			provider: authData.provider,
-			name: getName(authData),
-		})
-		alert("User created.");
-	}
-	
-	// Redirect to home screen.
-	if (authData)
+		// Redirect to home screen.
 		window.location.href = "pages/home.html";
+	}
 });
 
 // Returns a good name for the user based on their login choice.
