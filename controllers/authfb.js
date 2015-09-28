@@ -56,3 +56,8 @@ function getUser(authdata, usersRef){
 }
 
 
+//Returns the name of the user.
+function getName(authData, usersRef){
+  return authData.facebook.displayName;
+}
+

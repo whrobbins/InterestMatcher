@@ -3,10 +3,11 @@
     width: 799px;
     background-image: url("assets/logo.png");
     background-repeat: no-repeat;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 50px;
-    margin-bottom: 100px;
+	background-size: cover;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top : 50px;
+	margin-bottom: 100px;
 }
 
 h1, p{
