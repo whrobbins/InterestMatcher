@@ -1,11 +1,7 @@
 .banner{
 	width: 801px;
 	height: 95px; 
-<<<<<<< HEAD
-	background-image: url("interest matcher logo.png");
-=======
-	background-image: url("logo.png");
->>>>>>> de92f69079474d59f57ea352fbb4919a0e3f366b
+	background-image: url("../logo.png");
 	background-size: cover;
 	margin-left: auto;
 	margin-right: auto;
@@ -13,7 +9,13 @@
 	margin-bottom: 100px;
 }
 
-h1, p{
+.sidebar{
+	width: 200px;
+	height: 1000px;
+	background-color: #77236c;
+}
+
+h1, p, h2, h3, h4, menuT{
 	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
@@ -30,6 +32,15 @@ p{
 	color: #545454;
 }
 
+menuT{
+	font-size: 20px;
+	text-align: center;
+	color: white;
+	border-color: #00d2b3;
+	border-width: 5px;
+	
+}
+
 .fb-button{
 	position: absolute;
 	width: 210px;
@@ -44,4 +55,3 @@ p{
 	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 	font-size: 20px;
 }
-

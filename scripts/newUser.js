@@ -10,6 +10,10 @@ ref.onAuth(function(authData){
 			name: getName(authData),
 		})
 	}
+	
+	// Change page to home screen.
+	if (authData)
+		window.location.href = "pages/home.html";
 });
 
 // Returns a good name for the user based on their login choice.
